@@ -6,7 +6,7 @@ class NetboxBetterTemplatesConfig(PluginConfig):
     description = 'Adds new functionality to NetBox config templates.'
     author = 'radin-system'
     author_email = 'technical@rsto.ir'
-    version = '1.0.0'
+    version = '1.0.1'
     base_url = 'better-templates'
 
 

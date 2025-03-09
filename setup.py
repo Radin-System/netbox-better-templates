@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='netbox-better-templates',
-    version='1.0.0',
+    version='1.0.1',
     description='Adds some functionality to netbox templates and config render.',
     author='Radin System',
     author_email='technical@rsto.ir',
