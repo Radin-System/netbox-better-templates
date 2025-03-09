@@ -12,8 +12,6 @@ class NetboxBetterTemplatesConfig(PluginConfig):
 
     def ready(self):
         # Apply the monkey patch when the app is ready
-
-        self.add_custom_field()
         from . import monkey_patches
 
 config = NetboxBetterTemplatesConfig
