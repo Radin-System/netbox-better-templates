@@ -1,5 +1,6 @@
 # Netbox Better Templates Plugin
 Adds some functionality to netbox templates and config render.
+The plugin uses `Monkey-patching` and injects extensions into the netbox render method.
 
 ## Added Functions
 
@@ -8,7 +9,9 @@ Adds some functionality to netbox templates and config render.
 {{ datetime.now() }}
 ```
 
-- **authenticated_user**: The user who is rendering the templates.
+- **now**: standard now function of datetime.
 ```jinja3
-{{ authenticated_user }}
+{{ now() }}
 ```
+
+contributors are welcome. fork for any changes you want to make
