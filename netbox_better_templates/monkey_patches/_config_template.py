@@ -1,15 +1,18 @@
 from datetime import datetime
-from extras.models import ConfigTemplate
 
 
 def patch_config_template_render() -> None:
+    from extras.models import ConfigTemplate
 
     original_render = ConfigTemplate.render
 
-    def new_render(self: ConfigTemplate, context = None):
+    def new_render(
+            self: ConfigTemplate, 
+            context = None,
+            queryset = None,
+        ):
         # Add datetime and user to the context
         new_context = context if context is not None else {}
-
         new_context.update(
             {
                 'datetime': datetime,
@@ -17,10 +20,12 @@ def patch_config_template_render() -> None:
             },
         )
         return original_render(
-            self, 
+            self,
             context = new_context,
+            queryset = queryset,
         )
 
+    # Monkey patch
     ConfigTemplate.render = new_render
 
 
