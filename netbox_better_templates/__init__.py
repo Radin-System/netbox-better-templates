@@ -1,4 +1,5 @@
 from netbox.plugins import PluginConfig
+from .monkey_patches import patch_config_template_render
 
 class NetboxBetterTemplatesConfig(PluginConfig):
     name = 'netbox_better_templates'
@@ -11,7 +12,7 @@ class NetboxBetterTemplatesConfig(PluginConfig):
 
 
     def ready(self):
-        # Apply the monkey patch when the app is ready
-        from . import monkey_patches
+        patch_config_template_render()
+
 
 config = NetboxBetterTemplatesConfig

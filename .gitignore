@@ -1,0 +1,45 @@
+# abc folders
+.git/
+.github/
+.pytest_cache/
+.venv/
+.temp/
+.log/
+.db/
+__cache__/
+
+# abc Files
+.env
+__pycache__
+
+# Netbox
+/static/
+/account/
+/circuits/
+/core/
+/dcim/
+/extras/
+/ipam/
+/media/
+/netbox/
+/project-static/
+/reports/
+/scripts/
+/templates/
+/tenancy/
+/translations/
+/users/
+/utilities/
+/virtualization/
+/vpn/
+/wireless/
+
+/manage.py
+/release.yaml
+/generate_secret_key.py
+/requirements.txt
+
+
+/build
+/dist
+/*.egg-info

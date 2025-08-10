@@ -8,7 +8,12 @@ setup(
     author_email='technical@rsto.ir',
     url='https://github.com/radin-system/netbox-better-templates',
     install_requires=[],
-    packages=find_packages(),
+    packages=find_packages(
+        include = [
+            'netbox_better_templates',
+            'netbox_better_templates.*',
+        ],
+    ),
     include_package_data=True,
     zip_safe=False,
 )
