@@ -1,5 +1,9 @@
 from netbox.plugins import PluginConfig
-from .monkey_patches import patch_config_template_render
+from .monkey_patches import (
+    patch_config_templates,
+    patch_export_templates,
+    patch_custom_links,
+)
 from ._version import get_version
 
 class NetboxBetterTemplatesConfig(PluginConfig):
@@ -14,8 +18,9 @@ class NetboxBetterTemplatesConfig(PluginConfig):
     def ready(self):
         super().ready()
 
-        patch_config_template_render()
-
+        patch_config_templates()
+        patch_export_templates()
+        patch_custom_links()
 
     def __str__(self) -> str:
         return self.name
