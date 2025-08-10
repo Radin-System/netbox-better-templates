@@ -1,4 +1,5 @@
 from datetime import datetime
+from ..config_render_utils import RenderBuffer
 
 
 def patch_config_template_render() -> None:
@@ -11,12 +12,12 @@ def patch_config_template_render() -> None:
             context = None,
             queryset = None,
         ):
-        # Add datetime and user to the context
         new_context = context if context is not None else {}
         new_context.update(
             {
                 'datetime': datetime,
                 'now': datetime.now,
+                'Buffer': RenderBuffer(),
             },
         )
         return original_render(
