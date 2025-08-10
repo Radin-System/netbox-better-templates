@@ -1,11 +1,7 @@
+import urllib
 from datetime import datetime
-from ..config_render_utils import RenderBuffer
+from ..config_render_utils import RenderBuffer, raise_error
 
-addtional_context = {
-    'datetime': datetime,
-    'now': datetime.now,
-    'Buffer': RenderBuffer(),
-}
 
 def patch_config_templates() -> None:
     from extras.models import ConfigTemplate
@@ -18,7 +14,14 @@ def patch_config_templates() -> None:
             queryset = None,
         ):
         new_context = context if context is not None else {}
-        new_context.update(addtional_context)
+        new_context.update(
+            {
+                'datetime': datetime,
+                'now': datetime.now,
+                'Buffer': RenderBuffer(),
+                'raise_error': raise_error,
+            }
+        )
         return original_render(
             self,
             context = new_context,
@@ -39,7 +42,13 @@ def patch_export_templates() -> None:
             queryset = None,
         ):
         new_context = context if context is not None else {}
-        new_context.update(addtional_context)
+        new_context.update(
+            {
+                'datetime': datetime,
+                'now': datetime.now,
+                'raise_error': raise_error,
+            }
+        )
         return original_render(
             self,
             context = new_context,
@@ -59,7 +68,14 @@ def patch_custom_links() -> None:
             context,
         ):
         new_context = context if context is not None else {}
-        new_context.update(addtional_context)
+        new_context.update(
+            {
+                'urllib': urllib,
+                'datetime': datetime,
+                'now': datetime.now,
+                'raise_error': raise_error,
+            }
+        )
         return original_render(
             self,
             context = new_context,

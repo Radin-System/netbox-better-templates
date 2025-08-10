@@ -1,8 +1,8 @@
 from typing import Dict, List, Mapping, Optional, cast
-#from django.conf import settings
+from django.conf import settings
 from .._type_alisaes import MESSAGE_LEVELS
 
-DEBUG: bool = True
+DEBUG: bool = settings.DEBUG
 
 messages: Mapping[str, Dict[str, str]] = {
     "debug": {
